@@ -1,0 +1,167 @@
+<!DOCTYPE html> <!-- Define o tipo de documento como HTML5 -->
+<html lang="pt-br"> <!-- Define o idioma do conteúdo como português do Brasil -->
+
+<head>
+    <meta charset="UTF-8"> <!-- Define a codificação de caracteres como UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Configura o layout para ser responsivo em dispositivos móveis -->
+    <title>Chúa Lava-Rápido - Recibo de serviço</title> <!-- Título da aba do navegador -->
+
+    <!-- Importa o Bootstrap para estilos prontos -->
+    <link rel="stylesheet" href="../public/css/bootstrap.min.css">
+
+    <!-- Importa um CSS personalizado -->
+    <link rel="stylesheet" href="../public/css/style.css">
+
+    <!-- Política de segurança para scripts -->
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline'">
+</head>
+
+<body>
+    <div class="container">
+        <form class="mt-1 row g-3" id="frmRecibo"> <!-- Início do formulário -->
+
+            <div class="container mt-2">
+                <div class="mb-2 row">
+                    <!-- Campo de busca de cliente -->
+                    <div class="col-sm-4">
+                        <label for="inputSearchClient" class="form-label">Buscar Cliente</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="inputSearchClient" spellcheck="false" maxlength="30">
+                            <span class="input-group-text">
+                                <img src="../public/img/search.png" alt="lupa" width="20">
+                            </span>
+                        </div>
+                        <ul id="viewListSuggestion" class="list-group suggestion-list"></ul> <!-- Lista de sugestões de clientes -->
+                    </div>
+
+                    <!-- Número do recibo (desabilitado) -->
+                    <div class="col-sm-4">
+                        <label class="form-label">Nº Recibo</label>
+                        <input type="text" class="form-control" id="inputRecibo" disabled>
+                    </div>
+
+                    <!-- Data de entrada (desabilitada) -->
+                    <div class="col-sm-4">
+                        <label class="form-label">Data de entrada</label>
+                        <input type="text" class="form-control" id="inputData" disabled>
+                    </div>
+                </div>
+
+                <div class="mb-2 row">
+                    <!-- ID do cliente (somente leitura) -->
+                    <div class="col-sm-4">
+                        <label for="inputIdClient" class="form-label">Id do cliente</label>
+                        <input type="text" class="form-control" id="inputIdClient" spellcheck="false" maxlength="15" disabled>
+                    </div>
+
+                    <!-- Nome do cliente (somente leitura) -->
+                    <div class="col-sm-4">
+                        <label for="inputNameClient" class="form-label">Nome</label>
+                        <input type="text" class="form-control" id="inputNameClient" spellcheck="false" maxlength="30" disabled>
+                    </div>
+
+                    <!-- Telefone do cliente (com máscara e leitura apenas) -->
+                    <div class="col-sm-4">
+                        <label for="inputPhoneClient" class="form-label">Telefone</label>
+                        <input type="tel" class="form-control" id="inputPhoneClient" spellcheck="false" maxlength="15" oninput="mascaraTelefone(this)" disabled>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Campo oculto para armazenar ID do cliente -->
+            <input type="hidden" id="idClient"> <!-- Corrigido: antes era visível com type="text" -->
+
+            <!-- Início do fieldset com informações do serviço -->
+            <fieldset class="border p-4 mt-4">
+                <div class="mb-2 row">
+                    <!-- Status do serviço -->
+                    <div class="col-sm-6">
+                        <label class="form-label">Status</label>
+                        <select class="form-select" id="inputStatus" required>
+                            <option value="">Selecione</option>
+                            <option>Aberta</option>
+                            <option>Em andamento</option>
+                            <option>Aguardando material</option>
+                            <option>Finalizada</option>
+                            <option>Cancelada</option>
+                        </select>
+                    </div>
+
+                    <
+
+                    <!-- Tipo do veiculo -->
+                    <div class="col-sm-6">
+                        <label class="form-label" for="inputFurniture">Tipo do Veículo</label>
+                        <input type="text" class="form-control" id="inputFurniture" maxlength="44" required>
+                    </div>
+                </div>
+
+                <div class="mb-2 row">
+                    <!-- Modelo -->
+                    <div class="col-sm-4">
+                        <label class="form-label" for="inputModel">Modelo</label>
+                        <input type="text" class="form-control" id="inputModel" maxlength="20">
+                    </div>
+
+                    <!-- Ano -->
+                    <div class="col-sm-4">
+                        <label class="form-label" for="inputEnvironment">Ano</label> <!-- Corrigido: estava "ano" com "a" minúsculo -->
+                        <input type="text" class="form-control" id="inputEnvironment" maxlength="35">
+                    </div>
+                </div>
+
+                <!-- Serviço a ser realizado -->
+                <div class="col-sm-6">
+                    <label class="form-label" for="inputService">Serviço</label> <!-- Corrigido: for estava com id incorreto -->
+                    <input type="text" class="form-control" id="inputService" maxlength="80">
+                </div>
+
+                div class="col-sm-6">
+                        <label class="form-label">Serviços</label>
+                        <select class="form-select" id="inputStatus" required>
+                            <option value="">Selecione</option>
+                            <option>Ducha Completa com Cera e Pretinho</option>
+                            <option>Ducha com cera</option>
+                            <option>Ducha com Pretinho</option>
+                            <option>Pretinho</option>
+                            
+                        </select>
+                    </div>
+
+                
+                    <!-- Observações -->
+                    <div class="col-sm-4">
+                        <label class="form-label" for="inputObs">Observações</label>
+                        <input type="text" class="form-control" id="inputObs" maxlength="35">
+                    </div>
+
+                    <!-- Valor total do serviço -->
+                    <div class="col-sm-4">
+                        <label class="form-label" for="inputTotal">Valor</label>
+                        <input type="number" class="form-control" id="inputTotal" step="0.01" min="0">
+                    </div>
+                </div>
+
+                <!-- Botões de ação -->
+                <div class="mt-2 d-flex justify-content-center gap-1">
+                    <button type="submit" class="btn btn-success recibo-button" id="btnCreate">Gerar Recibo</button>
+                    <button type="submit" class="btn btn-warning recibo-button" id="btnUpdate">Editar Recibo</button>
+                    <button type="button" class="btn btn-danger recibo-button" id="btnDelete" onclick="removeRecibo()">Excluir Recibo</button>
+                    
+                    <!-- Botão de reset com texto visível -->
+                    <button type="reset" class="btn btn-secondary recibo-button" id="btnReset" onclick="resetForm()">Limpar</button> <!-- Corrigido: antes estava sem texto -->
+
+                    <button type="button" class="btn btn-primary recibo-button" onclick="findRecibo()" id="btnBuscaRecibo">Buscar Recibo</button>
+                    <button type="button" class="btn btn-secondary recibo-button" id="btnPrintRecibo">Imprimir Recibo</button>
+                    <!-- Corrigido: uso consistente da classe 'recibo-button' com letra minúscula -->
+                </div>
+            </fieldset>
+        </form>
+    </div>
+
+    <!-- Importa scripts -->
+    <script src="../public/js/bootstrap.min.js"></script>
+    <script src="./rendererRecibo.js"></script> <!-- Corrigido: removido .js duplicado -->
+</body>
+
+</html>

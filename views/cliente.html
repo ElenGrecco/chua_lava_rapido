@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br"> <!-- Define que o idioma da página é português do Brasil -->
+
+<head>
+    <meta charset="UTF-8"> <!-- Define a codificação de caracteres como UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Torna a página responsiva -->
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline'"> <!-- Política de segurança de conteúdo para scripts -->
+    <title>Chúa Lava-Rápido - Cliente</title> <!-- Título da aba do navegador -->
+
+    <!-- Link para o CSS do Bootstrap -->
+    <link rel="stylesheet" href="../public/css/bootstrap.min.css">
+    <!-- Link para o estilo personalizado -->
+    <link rel="stylesheet" href="../public/css/style.css">
+</head>
+
+<body>
+    <div class="container"> <!-- Container do Bootstrap para centralizar o conteúdo -->
+        <form id="frmClient" class="mt-2 row g-3"> <!-- Formulário com margem superior e layout em grid -->
+
+            <!-- Campo de busca -->
+            <div class="col-sm-6">
+                <input type="text" class="form-control" id="searchClient" maxlength="30" spellcheck="false"
+                    placeholder="Digite o nome ou CPF" autocomplete="off">
+                <ul id="suggestionList" class="suggestion-list"></ul> <!-- Lista de sugestões dinâmica -->
+            </div>
+
+            <!-- Botão de busca -->
+            <div class="col-sm-6">
+                <button type="button" class="btn btn-dark" id="btnRead" onclick="buscarClient()">Buscar</button>
+            </div>
+
+            <!-- Linha horizontal divisória -->
+            <hr class="mt-4 border border-primary border -1">
+
+            <!-- Campo oculto ou visível com ID do cliente (usado para editar/deletar) -->
+            <input type="text" id="idClient">
+
+            <!-- Nome completo -->
+            <div class="col-md-8">
+                <label for="inputNameClient" class="form-label">Nome completo</label>
+                <input type="text" class="form-control" id="inputNameClient" spellcheck="false" maxlength="30" required>
+            </div>
+
+            <!-- CPF -->
+            <div class="col-md-4">
+                <label for="inputCPFClient" class="form-label">CPF</label>
+                <input type="text" class="form-control" id="inputCPFClient" spellcheck="false"
+                    oninput="validarCPF(this)" maxlength="14" required>
+            </div>
+
+           
+            <!-- Telefone -->
+            <div class="col-md-4">
+                <label for="inputIPhoneClient" class="form-label">Telefone</label>
+                <input type="tel" class="form-control" id="inputIPhoneClient" spellcheck="false" maxlength="15" required
+                    oninput="mascaraTelefone(this)">
+            </div>
+                                  
+         
+            </div>
+
+            <!-- Botões de ação -->
+            <div class="mt-5">
+                <button type="submit" class="btn btn-success" id="btnCreate">Adicionar</button> <!-- Cadastrar -->
+                <button type="submit" class="btn btn-warning" id="btnUpdate" onclick="atualizarClient()" disabled>Editar</button> <!-- Atualizar cliente -->
+                <button type="button" class="btn btn-danger" id="btnDelete" onclick="excluirClient()" disabled>Delete</button> <!-- Deletar cliente -->
+                <button type="reset" class="btn mt-3" id="btnReset" onclick="resetForm()"></button> <!-- Limpar formulário -->
+            </div>
+
+        </form>
+    </div>
+
+    <!-- Script do Bootstrap -->
+    <script src="../public/js/bootstrap.min.js"></script>
+    <!-- Script com lógica da página do cliente -->
+    <script src="./rendererCliente.js"></script>
+</body>
+
+</html>

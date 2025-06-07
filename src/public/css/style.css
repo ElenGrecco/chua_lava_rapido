@@ -1,0 +1,105 @@
+/* input id */
+#idClient {
+    display: none;
+}
+
+#idSupplier{
+    display: none;
+}
+
+#idProduct {
+    display: none;
+}
+
+/* botões */
+.button img {
+    margin: 50px 15px 25px 15px;
+    padding: 5px;
+    border: 1px solid #E8E8E8;
+    cursor: pointer;
+}
+
+/* Botão reset
+#btnReset {
+    width: 48px;
+    height: 48px;
+    background-image: url('../img/clear.png');
+    border: none;
+    cursor: pointer;
+    margin-left: 10px;
+    
+}*/
+
+/* rodapé */
+footer {
+    background-color: #007acc;
+    width: 100%;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    bottom: 0;
+}
+
+footer p {
+    color: #FFFFFF;
+    margin: 0px 0px 0px 10px;
+}
+
+footer img {
+    margin-right: 10px;
+}
+
+/* Ocultar icone do select*/
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+/* Imagem do produto */
+#imageProductPreview {
+    border: 1px solid #dfdfdf;
+    border-radius: 5px;
+    width: 240px;
+    height: 240px;
+    padding: 5px;
+    position: absolute;
+    top: 62.8vh;
+    left: 50.6vw;
+    display: block;
+    object-fit: contain; /*object-fit: cover;*/
+}
+
+/*tamanho*/
+#productimgview {
+    width: 30%;
+    height: auto;
+}
+
+/*CLIENTES*/
+/* Container principal*/
+.email-cep-ddd-telefone-container {
+    display: flex; /* Usa flexbox para alinhar os campos horizontalmente */
+    gap: 0.5rem; /* Espaçamento de 0.5rem (8px) entre os campos */
+    align-items: flex-end; /* Alinha os campos na base */
+}
+/* Container para DDD e Telefone */
+.ddd-telefone-container {
+    display: flex; /* Usa flexbox para alinhar DDD e Telefone horizontalmente */
+}
+/* Estilo para o campo de DDD */
+#inputdddClient {
+    border-top-right-radius: 0; /* Remove o arredondamento do canto superior direito */
+    border-bottom-right-radius: 0; /* Remove o arredondamento do canto inferior direito */
+    border-right: none; /* Remove a borda direita */
+    margin-right: 0; /* Remove a margem direita */
+}
+/* Estilo para o campo de Telefone */
+#inputTelefoneClient {
+    border-top-left-radius: 0; /* Remove o arredondamento do canto superior esquerdo */
+    border-bottom-left-radius: 0; /* Remove o arredondamento do canto inferior esquerdo */
+    border-left: none; /* Remove a borda esquerda */
+    margin-left: 0; /* Remove a margem esquerda */
+}
+
+

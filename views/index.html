@@ -1,0 +1,75 @@
+<!DOCTYPE html> <!-- Define que este documento é do tipo HTML5 -->
+<html lang="pt-br"> <!-- Define o idioma principal do documento como português do Brasil -->
+
+<head>
+    <meta charset="UTF-8"> <!-- Define a codificação de caracteres como UTF-8, que suporta acentuação -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Faz o layout se adaptar a diferentes tamanhos de tela (responsivo) -->
+    <title>Chúa Lava-Rápido</title> <!-- Título da página que aparece na aba do navegador -->
+    
+    <!-- Importa o arquivo de estilos do Bootstrap para estilização rápida e responsiva -->
+    <link rel="stylesheet" href="../public/css/bootstrap.min.css">
+    
+    <!-- Importa o arquivo de estilos personalizados da aplicação -->
+    <link rel="stylesheet" href="../public/css/style.css">
+    
+    <!-- Define uma política de segurança para os scripts: só permite scripts locais e inline -->
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline' ">
+</head>
+
+<body>
+    <!-- Container principal para os botões representados por imagens -->
+    <div class="container button">
+        
+        <!-- Imagem com função de botão para abrir cadastro de clientes -->
+        <img 
+            src="../public/img/clientes.png" 
+            alt="Clientes" 
+            onclick="client()" 
+            title="Cadastro de clientes">
+        
+        <!-- Imagem com função de botão para abrir cadastro de veículos -->
+        <img 
+            src="../public/img/veiculos.png" 
+            alt="Veiculos" 
+            onclick="car()" 
+            title="Veículo do cliente">
+        
+        <!-- Imagem com função de botão para gerar/emitir um recibo de serviço -->
+        <img 
+            src="../public/img/recibo.png" 
+            alt="Recido dos Serviços" 
+            onclick="recibo()" 
+            title="Emissão do Recibo">
+        
+        <!-- Imagem da logo, usada como elemento visual no topo -->
+        <img 
+            src="../public/img/logo.png" 
+            alt="logo" 
+            id="logo">
+    </div>
+
+    <!-- Rodapé da página -->
+    <footer>
+        <!-- Parágrafo que exibirá a data atual dinamicamente (provavelmente preenchido por JavaScript) -->
+        <p id="dataAtual"></p>
+        
+        <!-- Ícone que indica o status da conexão com o banco de dados -->
+        <img 
+            src="../public/img/dboff.png" 
+            alt="dbicon" 
+            id="statusdb">
+    </footer>
+
+    <!-- Scripts JavaScript -->
+    
+    <!-- Script do Bootstrap para funcionalidades como modais, tooltips, etc. -->
+    <script src="../public/js/bootstrap.min.js"></script>
+    
+    <!-- Script com funcionalidades personalizadas da aplicação -->
+    <script src="../public/js/script.js"></script>
+    
+    <!-- Script renderer para integração com Electron -->
+    <script src="renderer.js"></script>
+</body>
+
+</html>
