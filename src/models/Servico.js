@@ -1,17 +1,17 @@
 
 const { model, Schema } = require('mongoose')
 
-const reciboSchema = new Schema({
-    veiculoRecibo: {
+const servicoSchema = new Schema({
+    veiculoServico: {
         type: String
     },
-    nomeRecibo: {
+    nomeServico: {
         type: String
     },
-    precoRecibo: {
+    precoServico: {
         type: String
     },
-    dataRecibo: {
+    dataServico: {
         type: Date,
         default: Date.now
     }
@@ -21,4 +21,4 @@ const reciboSchema = new Schema({
 
 // exportar para o arquivo main.js
 // Para modificar o nome da coleção ("tabela"), basta modificar na linha abaixo o rótulo 'Produtos', sempre iniciando com letra maiúscula
-module.exports = model('Recibo', reciboSchema)
+module.exports = model('Servico', servicoSchema)

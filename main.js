@@ -165,16 +165,16 @@ const template = [
                 click: () => relatorioClientes()
             },
             {
-                label: 'recibo abertas',
-                click: () => relatorioReciboporStatus('Aberta', 'Abertas', 'recibo_abertas')
+                label: 'veiculo',
+                click: () => relatorioReciboporStatus('Veiculo', 'Veiculo', 'recibo_veiculo')
             },
             {
-                label: 'recibo em andamento',
-                click: () => relatorioReciboporStatus('Em andamento', 'Em Andamento', 'recibo_em_andamento')
+                label: 'modelo',
+                click: () => relatorioReciboporStatus('Modelo', 'Modelo', 'recibo_modelo')
             },
             {
-                label: 'recibo aguardando material',
-                click: () => relatorioReciboporStatus('Aguardando material', 'Aguardando Material', 'recibo_aguardando_material')
+                label: 'ano',
+                click: () => relatorioReciboporStatus('Ano', 'Ano', 'recibo_aguardando_ano')
             },
             {
                 label: 'recibo concluídas',
@@ -565,13 +565,10 @@ ipcMain.on('update-recibo', async (event, recibo) => {
                 nomeCliente: recibo.nomeCliente,
                 telefoneCliente: recibo.telefoneCliente,
                 statusRecibo: recibo.statusRecibo,
-                movel: recibo.movel,
+                veiculo: recibo.veiculo,
                 modelo: recibo.modelo,
-                volumes: recibo.volumes,
-                ambiente: recibo.ambiente,
-                problema: recibo.problema,
-                material: recibo.material,
-                montador: recibo.montador,
+                ano: recibo.ano,
+               
                 observacao: recibo.observacao,
                 valor: recibo.valor
             },
